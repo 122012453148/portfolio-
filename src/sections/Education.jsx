@@ -16,14 +16,14 @@ const journeySteps = [
 
 const Education = () => {
   return (
-    <section id="education" className="py-24 px-4 md:px-16 relative overflow-hidden z-10">
+    <section id="education" className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 relative overflow-hidden z-10">
       
       {/* Academic Grid Pattern */}
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #860098 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
       
       {/* Soft Animated Background Blobs */}
-      <div className="absolute top-1/4 -left-32 w-[35rem] h-[35rem] bg-[#860098]/5 rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-1/4 -right-32 w-[35rem] h-[35rem] bg-[#F7D724]/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-1/4 -left-32 w-[25rem] sm:w-[35rem] h-[25rem] sm:h-[35rem] bg-[#860098]/5 rounded-full blur-[100px] sm:blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-1/4 -right-32 w-[25rem] sm:w-[35rem] h-[25rem] sm:h-[35rem] bg-[#F7D724]/5 rounded-full blur-[100px] sm:blur-[120px] pointer-events-none"></div>
       
       {/* Floating Graduation Cap Icons */}
       <motion.div 
@@ -51,7 +51,7 @@ const Education = () => {
       <SectionHeading title="Education" subtitle="Academic Background" />
       
       {/* Existing Education Cards */}
-      <div className="max-w-5xl mx-auto mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+      <div className="max-w-5xl mx-auto mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 relative z-10">
         
         {/* Thin Connecting Timeline line between cards */}
         <div className="hidden md:block absolute top-1/2 left-4 right-4 h-0.5 bg-gradient-to-r from-[#860098]/20 via-[#F7D724]/20 to-[#860098]/20 -translate-y-1/2 z-0"></div>
@@ -66,24 +66,25 @@ const Education = () => {
             className="relative z-10"
           >
             <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.03} transitionSpeed={2000} className="h-full">
-              <div className="glass-panel p-8 rounded-3xl h-full border border-black/5 hover:border-[#860098]/30 transition-all duration-300 relative overflow-hidden group">
+              <div className="glass-panel p-6 sm:p-8 rounded-2xl sm:rounded-3xl h-full border border-black/5 hover:border-[#860098]/30 transition-all duration-300 relative overflow-hidden group">
                 
                 {/* Background blur orb */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#860098]/5 blur-3xl rounded-full group-hover:bg-[#860098]/10 transition-all"></div>
                 
-                <div className="flex items-center gap-4 mb-6 relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#860098] to-[#F7D724] flex items-center justify-center text-white shadow-lg shadow-[#860098]/20">
-                    <GraduationCap size={28} />
+                <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 relative z-10">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-[#860098] to-[#F7D724] flex items-center justify-center text-white shadow-lg shadow-[#860098]/20 shrink-0">
+                    <GraduationCap size={24} className="sm:hidden" />
+                    <GraduationCap size={28} className="hidden sm:block" />
                   </div>
-                  <div>
-                    <h3 className="text-xl font-outfit font-bold text-gray-900">{edu.degree}</h3>
-                    <p className="text-gray-500 text-sm">{edu.duration}</p>
+                  <div className="min-w-0">
+                    <h3 className="text-lg sm:text-xl font-outfit font-bold text-gray-900 leading-tight">{edu.degree}</h3>
+                    <p className="text-gray-500 text-xs sm:text-sm">{edu.duration}</p>
                   </div>
                 </div>
                 
                 <div className="relative z-10">
-                  <h4 className="text-lg font-semibold text-gray-700 mb-2">{edu.institution}</h4>
-                  <p className="text-gray-500 text-sm leading-relaxed">{edu.details}</p>
+                  <h4 className="text-base sm:text-lg font-semibold text-gray-700 mb-2">{edu.institution}</h4>
+                  <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">{edu.details}</p>
                 </div>
                 
               </div>
@@ -93,14 +94,14 @@ const Education = () => {
       </div>
 
       {/* Education Journey Timeline */}
-      <div className="max-w-6xl mx-auto mt-28 relative z-10">
-        <h3 className="text-xl font-outfit font-bold text-gray-900 text-center mb-12 uppercase tracking-widest flex items-center justify-center gap-3">
+      <div className="max-w-6xl mx-auto mt-16 sm:mt-28 relative z-10">
+        <h3 className="text-lg sm:text-xl font-outfit font-bold text-gray-900 text-center mb-8 sm:mb-12 uppercase tracking-widest flex items-center justify-center gap-3">
           <span className="w-1.5 h-1.5 rounded-full bg-[#860098]"></span>
           Journey Timeline
           <span className="w-1.5 h-1.5 rounded-full bg-[#860098]"></span>
         </h3>
         
-        <div className="relative flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 px-4 py-8">
+        <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 md:gap-4 px-4 py-6 sm:py-8">
           {/* Horizontal Line on Desktop */}
           <div className="hidden md:block absolute top-1/2 left-8 right-8 h-1 bg-gradient-to-r from-[#860098] via-[#F7D724] to-[#860098] transform -translate-y-1/2 z-0 rounded-full"></div>
           
@@ -117,17 +118,17 @@ const Education = () => {
               className="flex flex-col items-center text-center relative z-10 w-full md:w-1/5"
             >
               {/* Year Label */}
-              <div className="px-4 py-1.5 rounded-full bg-white border border-black/5 text-[#860098] text-sm font-extrabold shadow-md mb-4 group-hover:scale-105 transition-transform duration-300">
+              <div className="px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-white border border-black/5 text-[#860098] text-xs sm:text-sm font-extrabold shadow-md mb-3 sm:mb-4">
                 {step.year}
               </div>
               
               {/* Icon Node */}
-              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#860098] to-[#F7D724] flex items-center justify-center text-white shadow-lg shadow-[#860098]/20 z-10 transition-transform hover:scale-110 duration-300">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-[#860098] to-[#F7D724] flex items-center justify-center text-white shadow-lg shadow-[#860098]/20 z-10 transition-transform hover:scale-110 duration-300">
                 {step.icon}
               </div>
 
               {/* Title Description */}
-              <p className="text-gray-700 text-xs font-semibold mt-4 max-w-[150px] leading-relaxed">
+              <p className="text-gray-700 text-xs font-semibold mt-3 sm:mt-4 max-w-[150px] leading-relaxed">
                 {step.title}
               </p>
             </motion.div>
