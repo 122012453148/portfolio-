@@ -36,7 +36,7 @@ const SkillBar = ({ name, icon, percentage, delay }) => (
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 relative z-10">
+    <section id="skills" className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 relative z-10 overflow-hidden">
       <SectionHeading title="Expertise" subtitle="Tech Stack" />
       
       {/* Marquee */}

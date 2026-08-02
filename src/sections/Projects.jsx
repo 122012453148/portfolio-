@@ -282,7 +282,7 @@ const Projects = () => {
   const others = PROJECTS.filter(p => !p.featured);
 
   return (
-    <section id="projects" className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 relative z-10">
+    <section id="projects" className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 relative z-10 overflow-hidden">
       <SectionHeading title="Selected Works" subtitle="Portfolio" />
       
       <div className="max-w-7xl mx-auto mt-10 sm:mt-16">

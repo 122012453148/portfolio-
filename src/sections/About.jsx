@@ -19,7 +19,7 @@ const Counter = ({ target, label, prefix = '', suffix = '+' }) => {
 
 const About = () => {
   return (
-    <section id="about" className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 relative z-10 bg-white">
+    <section id="about" className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 relative z-10 bg-white overflow-hidden">
       <SectionHeading title="About Me" subtitle="Who I Am" />
       
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center mt-10 sm:mt-16">

@@ -21,7 +21,7 @@ const highlights = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 relative z-10 bg-white">
+    <section id="experience" className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 relative z-10 bg-white overflow-hidden">
       <SectionHeading title="Experience" subtitle="Professional Journey" />
       
       <div className="max-w-7xl mx-auto mt-10 sm:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">

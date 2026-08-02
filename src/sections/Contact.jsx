@@ -81,7 +81,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 relative z-10 bg-white">
+    <section id="contact" className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 relative z-10 bg-white overflow-hidden">
       
       {/* Toast Notifications */}
       <AnimatePresence>
