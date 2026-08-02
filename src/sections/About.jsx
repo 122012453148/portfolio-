@@ -38,7 +38,8 @@ const About = () => {
                 <div className="absolute inset-0 bg-white/10 group-hover:bg-transparent transition-all duration-500 z-10"></div>
                 <img 
                   src="/about-image.jpg" 
-                  alt="Professional" 
+                  alt="Parthiban S — Professional Portrait of a MERN Stack Developer from Thanjavur, Tamil Nadu" 
+                  loading="lazy"
                   className="w-full object-cover transform group-hover:scale-110 transition-transform duration-700 filter contrast-125"
                 />
               </div>

@@ -90,9 +90,9 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.6 }}
             className="flex gap-6 text-gray-400 justify-center md:justify-start"
           >
-            <a href="https://github.com/122012453148" target="_blank" rel="noopener noreferrer" className="hover:text-[#860098] hover:-translate-y-1 transition-all duration-300"><Github size={22} /></a>
-            <a href="https://www.linkedin.com/in/parthiban-s-1a6619285/" target="_blank" rel="noopener noreferrer" title="Connect with me on LinkedIn" className="hover:text-[#860098] hover:-translate-y-1 transition-all duration-300"><Linkedin size={22} /></a>
-            <a href="mailto:parthivijay333@gmail.com" className="hover:text-[#860098] hover:-translate-y-1 transition-all duration-300"><Mail size={22} /></a>
+            <a href="https://github.com/122012453148" target="_blank" rel="noopener noreferrer" aria-label="Visit Parthiban S GitHub Profile" className="hover:text-[#860098] hover:-translate-y-1 transition-all duration-300"><Github size={22} /></a>
+            <a href="https://www.linkedin.com/in/parthiban-s-1a6619285/" target="_blank" rel="noopener noreferrer" aria-label="Connect with Parthiban S on LinkedIn" className="hover:text-[#860098] hover:-translate-y-1 transition-all duration-300"><Linkedin size={22} /></a>
+            <a href="mailto:parthivijay333@gmail.com" aria-label="Send Email to Parthiban S" className="hover:text-[#860098] hover:-translate-y-1 transition-all duration-300"><Mail size={22} /></a>
           </motion.div>
         </div>
 
@@ -108,7 +108,7 @@ const Hero = () => {
             <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-[340px] md:h-[340px] lg:w-[400px] lg:h-[400px] rounded-[2rem] p-1 border-gradient bg-white shadow-[0_0_50px_rgba(134,0,152,0.15)]">
               <div className="w-full h-full rounded-[1.8rem] overflow-hidden bg-white relative">
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#860098]/10 to-transparent mix-blend-overlay z-10"></div>
-                <img src="/hero-image.jpg" alt="Parthiban.S" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
+                <img src="/hero-image.jpg" alt="Parthiban S — MERN Stack Developer Profile Photo" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
               </div>
             </div>
           </Tilt>

@@ -142,7 +142,7 @@ const BrowserMockup = ({ image, title, url }) => {
         </div>
         {/* Browser Content */}
         <a href={url} target="_blank" rel="noopener noreferrer" className="relative block overflow-hidden cursor-pointer w-full bg-gray-100 aspect-[16/9]">
-          <img src={image} alt={title} className="w-full h-full object-cover object-top transform group-hover:scale-[1.03] transition-transform duration-700" />
+          <img src={image} alt={`${title} — Live Project Screenshot`} loading="lazy" className="w-full h-full object-cover object-top transform group-hover:scale-[1.03] transition-transform duration-700" />
           
           {/* Hover overlay with CTA */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">

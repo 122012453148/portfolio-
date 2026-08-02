@@ -2,11 +2,131 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <!-- ═══════════════════════════════════════════════
+         VIEWPORT & MOBILE
+    ═══════════════════════════════════════════════ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
-    <title>Parthiban.S - MERN Stack Developer</title>
-    <!-- Devicon -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+    <!-- ═══════════════════════════════════════════════
+         FAVICON & MANIFEST
+    ═══════════════════════════════════════════════ -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#860098" />
+    <meta name="msapplication-TileColor" content="#860098" />
+
+    <!-- ═══════════════════════════════════════════════
+         PRIMARY META
+    ═══════════════════════════════════════════════ -->
+    <title>Parthiban S | MERN Stack Developer | Full Stack Portfolio</title>
+    <meta name="description" content="Parthiban S is a MERN Stack Developer specializing in React.js, Node.js, Express.js, MongoDB, and modern full-stack web applications. Explore projects, experience, skills, and contact information." />
+    <meta name="keywords" content="Parthiban S, Parthiban, MERN Stack Developer, React Developer, Node.js Developer, Express.js, MongoDB, JavaScript Developer, Frontend Developer, Backend Developer, Full Stack Developer, Portfolio, Web Developer, Tamil Nadu Developer, Thanjavur Developer" />
+    <meta name="author" content="Parthiban S" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href="https://parthibans-portfolio.vercel.app/" />
+
+    <!-- ═══════════════════════════════════════════════
+         OPEN GRAPH (Facebook, LinkedIn, WhatsApp, Discord)
+    ═══════════════════════════════════════════════ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://parthibans-portfolio.vercel.app/" />
+    <meta property="og:title" content="Parthiban S | MERN Stack Developer" />
+    <meta property="og:description" content="Modern MERN Stack Developer Portfolio — React.js, Node.js, Express.js, MongoDB, JavaScript. Building scalable and high-performance web applications." />
+    <meta property="og:image" content="https://parthibans-portfolio.vercel.app/portfolio-preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Parthiban S — MERN Stack Developer Portfolio Preview" />
+    <meta property="og:site_name" content="Parthiban S Portfolio" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ═══════════════════════════════════════════════
+         TWITTER CARD
+    ═══════════════════════════════════════════════ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://parthibans-portfolio.vercel.app/" />
+    <meta name="twitter:title" content="Parthiban S | MERN Stack Developer" />
+    <meta name="twitter:description" content="Modern MERN Stack Developer Portfolio — React.js, Node.js, Express.js, MongoDB. Building scalable, high-performance full-stack applications." />
+    <meta name="twitter:image" content="https://parthibans-portfolio.vercel.app/portfolio-preview.png" />
+    <meta name="twitter:image:alt" content="Parthiban S — MERN Stack Developer Portfolio" />
+
+    <!-- ═══════════════════════════════════════════════
+         STRUCTURED DATA — JSON-LD Person Schema
+    ═══════════════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Parthiban S",
+      "alternateName": "Parthiban",
+      "jobTitle": "MERN Stack Developer",
+      "description": "MERN Stack Developer specializing in React.js, Node.js, Express.js and MongoDB. Building scalable and high-performance full-stack web applications.",
+      "url": "https://parthibans-portfolio.vercel.app/",
+      "image": "https://parthibans-portfolio.vercel.app/hero-image.jpg",
+      "email": "parthivijay333@gmail.com",
+      "telephone": "+919791915402",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Thanjavur",
+        "addressRegion": "Tamil Nadu",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://github.com/122012453148",
+        "https://www.linkedin.com/in/parthiban-s-1a6619285/"
+      ],
+      "knowsAbout": [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "Git",
+        "REST APIs",
+        "Full Stack Development",
+        "MERN Stack"
+      ]
+    }
+    </script>
+
+    <!-- ═══════════════════════════════════════════════
+         PERFORMANCE — PRECONNECT / DNS PREFETCH
+    ═══════════════════════════════════════════════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="https://github.com" />
+    <link rel="dns-prefetch" href="https://www.linkedin.com" />
+
+    <!-- ═══════════════════════════════════════════════
+         EXTERNAL FONTS & ICONS
+    ═══════════════════════════════════════════════ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+
+    <!-- ═══════════════════════════════════════════════
+         GOOGLE ANALYTICS (GA4) PLACEHOLDER
+         Replace G-XXXXXXXXXX with your actual GA4 Measurement ID
+         from https://analytics.google.com
+    ═══════════════════════════════════════════════ -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script> -->
+
+    <!-- ═══════════════════════════════════════════════
+         GOOGLE SEARCH CONSOLE VERIFICATION PLACEHOLDER
+         Replace content value with your verification token from
+         https://search.google.com/search-console
+    ═══════════════════════════════════════════════ -->
+    <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_TOKEN" /> -->
+
   </head>
   <body>
     <div id="root"></div>
