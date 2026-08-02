@@ -19,7 +19,7 @@ const Counter = ({ target, label, prefix = '', suffix = '+' }) => {
 
 const About = () => {
   return (
-    <section id="about" className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 relative z-10 bg-[#E9E7D4]">
+    <section id="about" className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 relative z-10 bg-white">
       <SectionHeading title="About Me" subtitle="Who I Am" />
       
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center mt-10 sm:mt-16">
@@ -33,7 +33,7 @@ const About = () => {
           className="md:col-span-5 flex justify-center"
         >
           <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15} scale={1.05} transitionSpeed={2000}>
-            <div className="relative w-full max-w-[280px] sm:max-w-sm rounded-[2rem] p-1 border-gradient bg-[#E9E7D4] group shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
+            <div className="relative w-full max-w-[280px] sm:max-w-sm rounded-[2rem] p-1 border-gradient bg-white group shadow-[0_20px_50px_rgba(0,0,0,0.1)]">
               <div className="w-full rounded-[1.8rem] overflow-hidden relative">
                 <div className="absolute inset-0 bg-white/10 group-hover:bg-transparent transition-all duration-500 z-10"></div>
                 <img 

@@ -21,7 +21,7 @@ const highlights = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 relative z-10 bg-[#E9E7D4]">
+    <section id="experience" className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 relative z-10 bg-white">
       <SectionHeading title="Experience" subtitle="Professional Journey" />
       
       <div className="max-w-7xl mx-auto mt-10 sm:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
@@ -29,7 +29,7 @@ const Experience = () => {
         {/* Left Side: Timeline */}
         <div className="lg:col-span-7 relative w-full">
           {/* Glowing Vertical Line */}
-          <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#860098] via-[#F7D724] to-transparent"></div>
+          <div className="absolute left-4 sm:left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#860098] via-[#A020B8] to-transparent"></div>
           
           {EXPERIENCE.map((exp, index) => (
             <div key={index} className="flex flex-col items-start mb-8 sm:mb-12 relative w-full">
@@ -47,7 +47,7 @@ const Experience = () => {
                 transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
                 className="w-full pl-12 sm:pl-16"
               >
-                <div className="glass-panel p-5 sm:p-8 rounded-2xl sm:rounded-3xl relative group overflow-hidden border border-black/5 hover:border-[#860098]/30 transition-all duration-300">
+                <div className="glass-panel p-5 sm:p-8 rounded-2xl sm:rounded-3xl relative group overflow-hidden border border-black/5 hover:border-[#860098] hover:shadow-[0_0_30px_rgba(134,0,152,0.15)] transition-all duration-300">
                   <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity hidden sm:block">
                     <Briefcase size={64} color="#860098" />
                   </div>
@@ -83,9 +83,9 @@ const Experience = () => {
           >
             <div 
               className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl relative overflow-hidden group border border-[#860098]/20 bg-white/80 backdrop-blur-md shadow-[0_10px_40px_rgba(134,0,152,0.08)] hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(134,0,152,0.15)] transition-all duration-500"
-              style={{ backgroundImage: 'linear-gradient(white, white), linear-gradient(135deg, #860098, #F7D724)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}
+              style={{ backgroundImage: 'linear-gradient(white, white), linear-gradient(135deg, #860098, #C13DDA)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}
             >
-              <div className="absolute -bottom-16 -right-16 w-32 h-32 bg-[#F7D724]/10 blur-3xl rounded-full"></div>
+              <div className="absolute -bottom-16 -right-16 w-32 h-32 bg-[#C13DDA]/5 blur-3xl rounded-full"></div>
 
               <h3 className="text-lg sm:text-xl font-outfit font-bold text-gray-900 mb-4 sm:mb-6 flex items-center gap-3">
                 <span className="text-xl">🛠</span>

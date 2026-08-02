@@ -13,7 +13,7 @@ const Hero = () => {
       
       {/* Background Glows */}
       <div className="absolute top-1/4 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-[#860098]/10 rounded-full blur-[100px] sm:blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-[#F7D724]/10 rounded-full blur-[100px] sm:blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-[#C13DDA]/10 rounded-full blur-[100px] sm:blur-[120px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center z-10">
         
@@ -24,9 +24,9 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass-panel mb-4 sm:mb-6 border border-black/5 text-xs sm:text-sm font-medium text-gray-600"
+            className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass-panel mb-4 sm:mb-6 border border-[#860098]/20 text-xs sm:text-sm font-medium text-gray-600 animate-fade-in"
           >
-            <span className="w-2 h-2 rounded-full bg-[#860098] animate-pulse"></span>
+            <span className="w-2 h-2 rounded-full bg-[#F7D724] animate-pulse"></span>
             Available for new opportunities
           </motion.div>
 
@@ -74,10 +74,10 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-5 justify-center md:justify-start mb-8 sm:mb-12 w-full sm:w-auto"
           >
-            <Link to="projects" smooth duration={500} className="cursor-pointer group flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-gradient-to-r from-[#860098] to-[#F7D724] text-white font-bold shadow-[0_0_20px_rgba(134,0,152,0.25)] hover:shadow-[0_0_30px_rgba(134,0,152,0.45)] transition-all duration-300 hover:scale-105 text-sm sm:text-base">
+            <Link to="projects" smooth duration={500} className="cursor-pointer group flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-gradient-to-r from-[#860098] via-[#A020B8] to-[#C13DDA] text-white font-bold shadow-[0_0_20px_rgba(134,0,152,0.25)] hover:shadow-[0_0_35px_rgba(134,0,152,0.45)] transition-all duration-300 hover:scale-105 text-sm sm:text-base">
               View Projects <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-            <a href="/resume/Parthiban_S_MERN_Stack_Developer_Resume.pdf" download="Parthiban_S_MERN_Stack_Developer_Resume.pdf" className="flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl glass-panel text-gray-700 font-medium hover:bg-black/5 transition-all duration-300 border border-black/10 text-sm sm:text-base">
+            <a href="/resume/Parthiban_S_MERN_Stack_Developer_Resume.pdf" download="Parthiban_S_MERN_Stack_Developer_Resume.pdf" className="flex items-center justify-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-white text-gray-700 font-medium hover:bg-black/5 transition-all duration-300 border border-[#860098]/30 hover:border-[#860098] hover:text-[#860098] text-sm sm:text-base">
               <Download size={18} /> Resume
             </a>
           </motion.div>
@@ -102,25 +102,25 @@ const Hero = () => {
           className="order-1 md:order-2 flex justify-center relative"
         >
           <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05} transitionSpeed={2000} className="relative z-10">
-            <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-[340px] md:h-[340px] lg:w-[400px] lg:h-[400px] rounded-[2rem] p-1 border-gradient bg-[#E9E7D4] shadow-[0_0_50px_rgba(134,0,152,0.15)]">
-              <div className="w-full h-full rounded-[1.8rem] overflow-hidden bg-[#E9E7D4] relative">
+            <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-[340px] md:h-[340px] lg:w-[400px] lg:h-[400px] rounded-[2rem] p-1 border-gradient bg-white shadow-[0_0_50px_rgba(134,0,152,0.15)]">
+              <div className="w-full h-full rounded-[1.8rem] overflow-hidden bg-white relative">
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#860098]/10 to-transparent mix-blend-overlay z-10"></div>
                 <img src="/hero-image.jpg" alt="Parthiban.S" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
               </div>
             </div>
 
             {/* Floating Tech Badges */}
-            <motion.div animate={{ y: [0, -15, 0] }} transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }} className="absolute -top-4 sm:-top-6 -left-2 sm:-left-6 px-3 sm:px-4 py-1.5 sm:py-2 glass-panel rounded-xl flex items-center gap-2 border border-black/5 z-20 shadow-xl text-xs sm:text-sm">
+            <motion.div animate={{ y: [0, -15, 0] }} transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }} className="absolute -top-4 sm:-top-6 -left-2 sm:-left-6 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/95 backdrop-blur rounded-xl flex items-center gap-2 border border-[#860098]/20 hover:border-[#860098]/40 transition-colors z-20 shadow-xl text-xs sm:text-sm">
               <i className="devicon-react-original text-[#61DAFB] text-xl sm:text-2xl"></i>
               <span className="font-semibold hidden sm:inline">React</span>
             </motion.div>
             
-            <motion.div animate={{ y: [0, 20, 0] }} transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }} className="absolute -bottom-6 sm:-bottom-8 right-4 sm:right-10 px-3 sm:px-4 py-1.5 sm:py-2 glass-panel rounded-xl flex items-center gap-2 border border-black/5 z-20 shadow-xl text-xs sm:text-sm">
+            <motion.div animate={{ y: [0, 20, 0] }} transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }} className="absolute -bottom-6 sm:-bottom-8 right-4 sm:right-10 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/95 backdrop-blur rounded-xl flex items-center gap-2 border border-[#860098]/20 hover:border-[#860098]/40 transition-colors z-20 shadow-xl text-xs sm:text-sm">
               <i className="devicon-nodejs-plain text-[#339933] text-xl sm:text-2xl"></i>
               <span className="font-semibold hidden sm:inline">Node.js</span>
             </motion.div>
 
-            <motion.div animate={{ x: [0, 15, 0] }} transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 2 }} className="absolute top-1/2 -right-4 sm:-right-8 px-2 sm:px-3 py-2 sm:py-3 glass-panel rounded-xl flex items-center gap-2 border border-black/5 z-20 shadow-xl">
+            <motion.div animate={{ x: [0, 15, 0] }} transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 2 }} className="absolute top-1/2 -right-4 sm:-right-8 px-2 sm:px-3 py-2 sm:py-3 bg-white/95 backdrop-blur rounded-xl flex items-center gap-2 border border-[#860098]/20 hover:border-[#860098]/40 transition-colors z-20 shadow-xl">
               <i className="devicon-mongodb-plain text-[#47A248] text-2xl sm:text-3xl"></i>
             </motion.div>
           </Tilt>

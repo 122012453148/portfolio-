@@ -44,7 +44,7 @@ const Navbar = () => {
         
         {/* Logo */}
         <div className="flex items-center gap-2 sm:gap-3 cursor-pointer group">
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-[#860098] to-[#F7D724] flex items-center justify-center text-white font-bold text-lg sm:text-xl shadow-[0_0_15px_rgba(134,0,152,0.35)] group-hover:shadow-[0_0_25px_rgba(134,0,152,0.55)] transition-all duration-300">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-[#860098] via-[#A020B8] to-[#C13DDA] flex items-center justify-center text-white font-bold text-lg sm:text-xl shadow-[0_0_15px_rgba(134,0,152,0.35)] group-hover:shadow-[0_0_25px_rgba(134,0,152,0.55)] transition-all duration-300">
             P
           </div>
           <h1 className="text-lg sm:text-xl font-bold font-outfit hidden sm:block text-gray-900 tracking-wide">
@@ -55,13 +55,13 @@ const Navbar = () => {
         {/* Desktop Links */}
         <ul className="hidden md:flex items-center gap-4 lg:gap-8">
           {links.map(({ id, link }) => (
-            <li key={id} className="capitalize text-gray-600 hover:text-gray-900 text-sm font-medium cursor-pointer transition-colors duration-200">
+            <li key={id} className="capitalize text-gray-600 hover:text-[#860098] text-sm font-medium cursor-pointer transition-colors duration-200">
               <Link 
                 to={link} 
                 smooth 
                 duration={500} 
                 spy 
-                activeClass="text-transparent bg-clip-text bg-gradient-to-r from-[#860098] to-[#F7D724] font-semibold"
+                activeClass="text-[#860098] font-semibold border-b-2 border-[#860098] pb-1"
               >
                 {link}
               </Link>
@@ -69,7 +69,7 @@ const Navbar = () => {
           ))}
           <li>
             <Link to="contact" smooth duration={500}>
-              <button className="px-4 lg:px-5 py-2 rounded-xl bg-[#860098]/10 hover:bg-[#860098]/20 border border-[#860098]/20 text-[#860098] font-medium transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(134,0,152,0.15)] text-sm">
+              <button className="px-4 lg:px-5 py-2 rounded-xl bg-white border border-[#860098] text-[#860098] hover:bg-[#860098] hover:text-white font-medium transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(134,0,152,0.15)] text-sm">
                 Contact Me
               </button>
             </Link>
@@ -137,7 +137,7 @@ const Navbar = () => {
                     className="mt-4"
                   >
                     <Link onClick={() => setNav(false)} to="contact" smooth duration={500}>
-                      <button className="w-full px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#860098] to-[#F7D724] text-white font-semibold shadow-[0_0_30px_rgba(134,0,152,0.25)] text-base">
+                      <button className="w-full px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#860098] via-[#A020B8] to-[#C13DDA] text-white font-semibold shadow-[0_0_30px_rgba(134,0,152,0.25)] text-base">
                         Let's Talk
                       </button>
                     </Link>

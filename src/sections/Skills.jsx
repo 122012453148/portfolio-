@@ -28,7 +28,7 @@ const SkillBar = ({ name, icon, percentage, delay }) => (
         whileInView={{ width: `${percentage}%` }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay: delay + 0.2, ease: "easeOut" }}
-        className="h-full rounded-full bg-gradient-to-r from-[#860098] to-[#F7D724]"
+        className="h-full rounded-full bg-gradient-to-r from-[#860098] via-[#A020B8] to-[#C13DDA]"
       ></motion.div>
     </div>
   </motion.div>
@@ -55,7 +55,7 @@ const Skills = () => {
         
         {/* Frontend Skills */}
         <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} scale={1.02} transitionSpeed={2000}>
-          <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-black/5 relative overflow-hidden group hover:border-[#860098]/30 transition-all duration-300">
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-black/5 relative overflow-hidden group hover:border-[#860098] hover:shadow-[0_0_30px_rgba(134,0,152,0.15)] transition-all duration-300">
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#860098]/5 blur-3xl rounded-full"></div>
             <h3 className="text-xl sm:text-2xl font-outfit font-bold text-gray-900 mb-6 sm:mb-8">Frontend Development</h3>
             
@@ -68,8 +68,8 @@ const Skills = () => {
 
         {/* Backend & DB Skills */}
         <Tilt tiltMaxAngleX={5} tiltMaxAngleY={5} scale={1.02} transitionSpeed={2000}>
-          <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-black/5 relative overflow-hidden group hover:border-[#860098]/30 transition-all duration-300">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[#F7D724]/10 blur-3xl rounded-full"></div>
+          <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-black/5 relative overflow-hidden group hover:border-[#860098] hover:shadow-[0_0_30px_rgba(134,0,152,0.15)] transition-all duration-300">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#C13DDA]/5 blur-3xl rounded-full"></div>
             <h3 className="text-xl sm:text-2xl font-outfit font-bold text-gray-900 mb-6 sm:mb-8">Backend & Database</h3>
             
             <SkillBar name="Node.js" icon={<i className="devicon-nodejs-plain text-[#339933]"></i>} percentage={85} delay={0.1} />

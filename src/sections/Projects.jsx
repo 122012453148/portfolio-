@@ -14,7 +14,7 @@ const PortalDropdown = ({ portals }) => {
       <button 
         onClick={() => setIsOpen(!isOpen)} 
         onBlur={() => setTimeout(() => setIsOpen(false), 200)}
-        className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-[#860098] to-[#F7D724] text-white font-semibold flex items-center gap-2 hover:shadow-[0_0_20px_rgba(134,0,152,0.3)] transition-all text-sm sm:text-base w-full sm:w-auto justify-center"
+        className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-[#860098] via-[#A020B8] to-[#C13DDA] text-white font-semibold flex items-center gap-2 hover:shadow-[0_0_20px_rgba(134,0,152,0.3)] transition-all text-sm sm:text-base w-full sm:w-auto justify-center"
       >
         View Portals <ChevronDown size={18} className={`transform transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
@@ -48,35 +48,37 @@ const PortalDropdown = ({ portals }) => {
 
 const BrowserMockup = ({ image, title, url }) => {
   return (
-    <div className="w-full rounded-xl sm:rounded-2xl overflow-hidden border border-black/10 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] flex flex-col group relative transition-all duration-500 hover:shadow-[0_25px_60px_rgba(134,0,152,0.15)] hover:-translate-y-1">
-      {/* Browser Header */}
-      <div className="h-8 sm:h-10 bg-gray-50 flex items-center px-3 sm:px-4 gap-3 sm:gap-4 border-b border-black/5">
-        <div className="flex gap-1.5 sm:gap-2">
-          <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5F56]"></div>
-          <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FFBD2E]"></div>
-          <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#27C93F]"></div>
-        </div>
-        <div className="flex-grow flex justify-center">
-          <div className="bg-gray-100 text-gray-500 text-[10px] sm:text-xs px-3 sm:px-4 py-0.5 sm:py-1 rounded-md flex items-center gap-1.5 sm:gap-2 max-w-[140px] sm:max-w-[200px] truncate border border-black/5">
-            <Lock size={10} className="text-green-500 shrink-0 sm:hidden" />
-            <Lock size={12} className="text-green-500 shrink-0 hidden sm:block" />
-            {new URL(url).hostname}
+    <div className="w-full rounded-xl sm:rounded-2xl p-[1px] bg-gradient-to-r from-[#860098] via-[#A020B8] to-[#C13DDA] shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 hover:shadow-[0_25px_60px_rgba(134,0,152,0.15)] hover:-translate-y-1">
+      <div className="w-full h-full rounded-[11px] sm:rounded-[15px] overflow-hidden bg-white flex flex-col group relative">
+        {/* Browser Header */}
+        <div className="h-8 sm:h-10 bg-gray-50 flex items-center px-3 sm:px-4 gap-3 sm:gap-4 border-b border-black/5">
+          <div className="flex gap-1.5 sm:gap-2">
+            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5F56]"></div>
+            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FFBD2E]"></div>
+            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#27C93F]"></div>
+          </div>
+          <div className="flex-grow flex justify-center">
+            <div className="bg-gray-100 text-gray-500 text-[10px] sm:text-xs px-3 sm:px-4 py-0.5 sm:py-1 rounded-md flex items-center gap-1.5 sm:gap-2 max-w-[140px] sm:max-w-[200px] truncate border border-black/5">
+              <Lock size={10} className="text-green-500 shrink-0 sm:hidden" />
+              <Lock size={12} className="text-green-500 shrink-0 hidden sm:block" />
+              {new URL(url).hostname}
+            </div>
           </div>
         </div>
+        {/* Browser Content */}
+        <a href={url} target="_blank" rel="noopener noreferrer" className="relative block overflow-hidden cursor-pointer w-full bg-gray-100 aspect-[16/9]">
+          <img src={image} alt={title} className="w-full h-full object-cover object-top transform group-hover:scale-[1.03] transition-transform duration-700" />
+          
+          {/* Hover overlay with CTA */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
+            <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/95 backdrop-blur-md text-gray-900 font-semibold text-xs sm:text-sm shadow-xl">
+              <ExternalLink size={14} className="text-[#860098] sm:hidden" />
+              <ExternalLink size={16} className="text-[#860098] hidden sm:block" />
+              View Live Demo
+            </div>
+          </div>
+        </a>
       </div>
-      {/* Browser Content */}
-      <a href={url} target="_blank" rel="noopener noreferrer" className="relative block overflow-hidden cursor-pointer w-full bg-gray-100 aspect-[16/9]">
-        <img src={image} alt={title} className="w-full h-full object-cover object-top transform group-hover:scale-[1.03] transition-transform duration-700" />
-        
-        {/* Hover overlay with CTA */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center">
-          <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/95 backdrop-blur-md text-gray-900 font-semibold text-xs sm:text-sm shadow-xl">
-            <ExternalLink size={14} className="text-[#860098] sm:hidden" />
-            <ExternalLink size={16} className="text-[#860098] hidden sm:block" />
-            View Live Demo
-          </div>
-        </div>
-      </a>
     </div>
   );
 };
@@ -90,11 +92,11 @@ const FeaturedProject = ({ project }) => {
       className="w-full relative group mb-12 sm:mb-24"
     >
       <Tilt tiltMaxAngleX={1} tiltMaxAngleY={1} scale={1.01} transitionSpeed={2000}>
-        <div className="glass-panel p-4 sm:p-6 md:p-10 rounded-2xl sm:rounded-[2.5rem] border border-black/5 hover:border-[#860098]/20 transition-all duration-500 relative overflow-hidden flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12 items-center">
+        <div className="glass-panel p-4 sm:p-6 md:p-10 rounded-2xl sm:rounded-[2.5rem] border border-black/5 hover:border-[#860098]/30 transition-all duration-500 relative overflow-hidden flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12 items-center">
           
           {/* Background Glows */}
           <div className="absolute -top-32 -left-32 w-64 h-64 bg-[#860098]/10 blur-[100px] rounded-full pointer-events-none group-hover:bg-[#860098]/15 transition-all duration-700"></div>
-          <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-[#F7D724]/5 blur-[100px] rounded-full pointer-events-none group-hover:bg-[#F7D724]/10 transition-all duration-700"></div>
+          <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-[#C13DDA]/5 blur-[100px] rounded-full pointer-events-none group-hover:bg-[#C13DDA]/10 transition-all duration-700"></div>
           
           {/* Left: Mockup */}
           <div className="w-full lg:w-[55%] relative z-10">
@@ -107,7 +109,7 @@ const FeaturedProject = ({ project }) => {
               <div className="inline-flex items-center px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-[#860098]/10 border border-[#860098]/20">
                 <span className="text-[#860098] text-[10px] sm:text-xs font-bold uppercase tracking-wider">⭐ Featured Project</span>
               </div>
-              <div className="inline-flex items-center px-2 sm:px-3 py-1 sm:py-1.5 rounded-full bg-[#F7D724]/10 border border-[#F7D724]/30">
+              <div className="inline-flex items-center px-2 sm:px-3 py-1 sm:py-1.5 rounded-full bg-[#860098]/10 border border-[#860098]/20">
                 <span className="text-[#860098] text-[10px] sm:text-xs font-bold uppercase tracking-wider">🔥 Most Advanced</span>
               </div>
             </div>
@@ -130,7 +132,7 @@ const FeaturedProject = ({ project }) => {
               {project.portals && project.portals.length > 0 ? (
                 <PortalDropdown portals={project.portals} />
               ) : (
-                <a href={project.live} target="_blank" rel="noopener noreferrer" className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-gradient-to-r from-[#860098] to-[#F7D724] text-white font-semibold flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(134,0,152,0.3)] hover:-translate-y-0.5 transition-all text-sm sm:text-base">
+                <a href={project.live} target="_blank" rel="noopener noreferrer" className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-gradient-to-r from-[#860098] via-[#A020B8] to-[#C13DDA] text-white font-semibold flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(134,0,152,0.3)] hover:-translate-y-0.5 transition-all text-sm sm:text-base">
                   <ExternalLink size={18} /> Live Demo
                 </a>
               )}
@@ -155,7 +157,7 @@ const StandardProjectCard = ({ project, index }) => {
       className="h-full"
     >
       <Tilt tiltMaxAngleX={2} tiltMaxAngleY={2} scale={1.02} transitionSpeed={2000} className="h-full">
-        <div className="glass-panel p-4 sm:p-5 rounded-2xl sm:rounded-[2rem] border border-black/5 hover:border-[#860098]/20 transition-all duration-500 h-full flex flex-col relative overflow-hidden group shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
+        <div className="glass-panel p-4 sm:p-5 rounded-2xl sm:rounded-[2rem] border border-black/5 hover:border-[#860098]/30 transition-all duration-500 h-full flex flex-col relative overflow-hidden group shadow-[0_10px_30px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
           
           <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#860098]/5 to-transparent blur-3xl rounded-full group-hover:from-[#860098]/10 transition-all duration-700"></div>
           
@@ -181,7 +183,7 @@ const StandardProjectCard = ({ project, index }) => {
               {project.portals && project.portals.length > 0 ? (
                 <PortalDropdown portals={project.portals} />
               ) : (
-                <a href={project.live} target="_blank" rel="noopener noreferrer" className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-[#860098] to-[#F7D724] text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 hover:shadow-[0_0_15px_rgba(134,0,152,0.2)] hover:-translate-y-0.5 transition-all">
+                <a href={project.live} target="_blank" rel="noopener noreferrer" className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-[#860098] via-[#A020B8] to-[#C13DDA] text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 hover:shadow-[0_0_15px_rgba(134,0,152,0.2)] hover:-translate-y-0.5 transition-all">
                   <ExternalLink size={14} className="sm:hidden" />
                   <ExternalLink size={16} className="hidden sm:block" />
                   Live Demo

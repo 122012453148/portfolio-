@@ -81,7 +81,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 relative z-10 bg-[#E9E7D4]">
+    <section id="contact" className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 relative z-10 bg-white">
       
       {/* Toast Notifications */}
       <AnimatePresence>
@@ -245,14 +245,14 @@ const Contact = () => {
             <button 
               type="submit"
               disabled={status === 'sending'}
-              className="group relative w-full flex justify-center items-center gap-2 py-3 sm:py-4 rounded-xl bg-gradient-to-r from-[#860098] to-[#F7D724] text-white font-bold text-base sm:text-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(134,0,152,0.25)] hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group relative w-full flex justify-center items-center gap-2 py-3 sm:py-4 rounded-xl bg-gradient-to-r from-[#860098] via-[#A020B8] to-[#C13DDA] text-white font-bold text-base sm:text-lg overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(134,0,152,0.25)] hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <span className="relative z-10 flex items-center gap-2">
                 {status === 'sending' ? 'Sending...' : 'Send Message'} 
                 <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform sm:hidden" />
                 <Send size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform hidden sm:block" />
               </span>
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0"></div>
+              <div className="absolute inset-0 bg-[#700080] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-0"></div>
             </button>
           </form>
 
@@ -265,7 +265,7 @@ const Contact = () => {
             className="mt-5 sm:mt-6 relative z-10"
           >
             <div className="rounded-xl sm:rounded-2xl border border-[#860098]/20 bg-white/80 backdrop-blur-md shadow-[0_10px_40px_rgba(134,0,152,0.08)] p-4 sm:p-5 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(134,0,152,0.15)] transition-all duration-500"
-              style={{ backgroundImage: 'linear-gradient(white, white), linear-gradient(135deg, #860098, #F7D724)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}
+              style={{ backgroundImage: 'linear-gradient(white, white), linear-gradient(135deg, #860098, #C13DDA)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}
             >
               {/* Header */}
               <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
@@ -311,7 +311,7 @@ const Contact = () => {
               { value: "Open", label: "Availability" },
             ].map((stat, i) => (
               <div key={i} className="glass-panel rounded-lg sm:rounded-xl p-2.5 sm:p-3 text-center border border-black/5 hover:border-[#860098]/20 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(134,0,152,0.1)] transition-all duration-300">
-                <p className="text-base sm:text-lg font-extrabold font-outfit text-transparent bg-clip-text bg-gradient-to-r from-[#860098] to-[#F7D724]">{stat.value}</p>
+                <p className="text-base sm:text-lg font-extrabold font-outfit text-transparent bg-clip-text bg-gradient-to-r from-[#860098] via-[#A020B8] to-[#C13DDA]">{stat.value}</p>
                 <p className="text-gray-500 text-[10px] sm:text-xs mt-0.5 font-medium">{stat.label}</p>
               </div>
             ))}

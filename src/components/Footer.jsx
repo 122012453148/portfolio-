@@ -21,15 +21,15 @@ const Footer = () => {
           </div>
 
           <div className="flex gap-4 sm:gap-6">
-            <a href="https://github.com/122012453148" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-[#F7D724] hover:border-[#F7D724] hover:shadow-[0_0_20px_rgba(247,215,36,0.3)] transition-all duration-300">
+            <a href="https://github.com/122012453148" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-[#860098] hover:border-[#860098] hover:shadow-[0_0_20px_rgba(134,0,152,0.3)] transition-all duration-300">
               <Github size={18} className="sm:hidden" />
               <Github size={20} className="hidden sm:block" />
             </a>
-            <a href="https://www.linkedin.com/in/parthiban-s-1a6619285/" target="_blank" rel="noopener noreferrer" title="Connect with me on LinkedIn" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-[#F7D724] hover:border-[#F7D724] hover:shadow-[0_0_20px_rgba(247,215,36,0.3)] transition-all duration-300">
+            <a href="https://www.linkedin.com/in/parthiban-s-1a6619285/" target="_blank" rel="noopener noreferrer" title="Connect with me on LinkedIn" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-[#860098] hover:border-[#860098] hover:shadow-[0_0_20px_rgba(134,0,152,0.3)] transition-all duration-300">
               <Linkedin size={18} className="sm:hidden" />
               <Linkedin size={20} className="hidden sm:block" />
             </a>
-            <a href="mailto:parthivijay333@gmail.com" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-[#F7D724] hover:border-[#F7D724] hover:shadow-[0_0_20px_rgba(247,215,36,0.3)] transition-all duration-300">
+            <a href="mailto:parthivijay333@gmail.com" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-[#860098] hover:border-[#860098] hover:shadow-[0_0_20px_rgba(134,0,152,0.3)] transition-all duration-300">
               <Mail size={18} className="sm:hidden" />
               <Mail size={20} className="hidden sm:block" />
             </a>

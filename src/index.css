@@ -4,7 +4,7 @@
 
 @theme {
   --color-bg-primary: #FFFFFF;
-  --color-bg-secondary: #E9E7D4;
+  --color-bg-secondary: #FFFFFF;
   
   --color-accent-purple: #860098;
   --color-accent-yellow: #F7D724;
@@ -19,7 +19,7 @@
   --shadow-glow-purple: 0 0 30px rgba(134, 0, 152, 0.25);
   --shadow-glow-yellow: 0 0 30px rgba(247, 215, 36, 0.25);
   
-  --background-image-gradient-luxury: linear-gradient(135deg, var(--color-accent-purple), var(--color-accent-yellow));
+  --background-image-gradient-luxury: linear-gradient(135deg, #860098 0%, #A020B8 50%, #C13DDA 100%);
 }
 
 body {

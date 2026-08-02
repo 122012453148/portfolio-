@@ -23,7 +23,7 @@ const Education = () => {
       
       {/* Soft Animated Background Blobs */}
       <div className="absolute top-1/4 -left-32 w-[25rem] sm:w-[35rem] h-[25rem] sm:h-[35rem] bg-[#860098]/5 rounded-full blur-[100px] sm:blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-1/4 -right-32 w-[25rem] sm:w-[35rem] h-[25rem] sm:h-[35rem] bg-[#F7D724]/5 rounded-full blur-[100px] sm:blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-1/4 -right-32 w-[25rem] sm:w-[35rem] h-[25rem] sm:h-[35rem] bg-[#C13DDA]/5 rounded-full blur-[100px] sm:blur-[120px] pointer-events-none"></div>
       
       {/* Floating Graduation Cap Icons */}
       <motion.div 
@@ -36,7 +36,7 @@ const Education = () => {
       <motion.div 
         animate={{ y: [0, 20, 0], rotate: [0, -15, 0] }}
         transition={{ repeat: Infinity, duration: 10, ease: "easeInOut", delay: 1 }}
-        className="absolute top-1/2 right-12 text-[#F7D724]/10 hidden lg:block"
+        className="absolute top-1/2 right-12 text-[#C13DDA]/10 hidden lg:block"
       >
         <GraduationCap size={56} />
       </motion.div>
@@ -54,7 +54,7 @@ const Education = () => {
       <div className="max-w-5xl mx-auto mt-10 sm:mt-16 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 relative z-10">
         
         {/* Thin Connecting Timeline line between cards */}
-        <div className="hidden md:block absolute top-1/2 left-4 right-4 h-0.5 bg-gradient-to-r from-[#860098]/20 via-[#F7D724]/20 to-[#860098]/20 -translate-y-1/2 z-0"></div>
+        <div className="hidden md:block absolute top-1/2 left-4 right-4 h-0.5 bg-gradient-to-r from-[#860098]/20 via-[#C13DDA]/20 to-[#860098]/20 -translate-y-1/2 z-0"></div>
         
         {EDUCATION.map((edu, index) => (
           <motion.div 
@@ -66,13 +66,13 @@ const Education = () => {
             className="relative z-10"
           >
             <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.03} transitionSpeed={2000} className="h-full">
-              <div className="glass-panel p-6 sm:p-8 rounded-2xl sm:rounded-3xl h-full border border-black/5 hover:border-[#860098]/30 transition-all duration-300 relative overflow-hidden group">
+              <div className="glass-panel p-6 sm:p-8 rounded-2xl sm:rounded-3xl h-full border border-black/5 hover:border-[#860098] hover:shadow-[0_0_30px_rgba(134,0,152,0.15)] transition-all duration-300 relative overflow-hidden group">
                 
                 {/* Background blur orb */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#860098]/5 blur-3xl rounded-full group-hover:bg-[#860098]/10 transition-all"></div>
                 
                 <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 relative z-10">
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-[#860098] to-[#F7D724] flex items-center justify-center text-white shadow-lg shadow-[#860098]/20 shrink-0">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-[#860098] via-[#A020B8] to-[#C13DDA] flex items-center justify-center text-white shadow-lg shadow-[#860098]/20 shrink-0">
                     <GraduationCap size={24} className="sm:hidden" />
                     <GraduationCap size={28} className="hidden sm:block" />
                   </div>
@@ -103,10 +103,10 @@ const Education = () => {
         
         <div className="relative flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 md:gap-4 px-4 py-6 sm:py-8">
           {/* Horizontal Line on Desktop */}
-          <div className="hidden md:block absolute top-1/2 left-8 right-8 h-1 bg-gradient-to-r from-[#860098] via-[#F7D724] to-[#860098] transform -translate-y-1/2 z-0 rounded-full"></div>
+          <div className="hidden md:block absolute top-1/2 left-8 right-8 h-1 bg-gradient-to-r from-[#860098] via-[#C13DDA] to-[#860098] transform -translate-y-1/2 z-0 rounded-full"></div>
           
           {/* Vertical Line on Mobile */}
-          <div className="block md:hidden absolute left-1/2 top-4 bottom-4 w-1 bg-gradient-to-b from-[#860098] via-[#F7D724] to-[#860098] transform -translate-x-1/2 z-0 rounded-full"></div>
+          <div className="block md:hidden absolute left-1/2 top-4 bottom-4 w-1 bg-gradient-to-b from-[#860098] via-[#C13DDA] to-[#860098] transform -translate-x-1/2 z-0 rounded-full"></div>
 
           {journeySteps.map((step, idx) => (
             <motion.div 
@@ -123,10 +123,10 @@ const Education = () => {
               </div>
               
               {/* Icon Node */}
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-[#860098] to-[#F7D724] flex items-center justify-center text-white shadow-lg shadow-[#860098]/20 z-10 transition-transform hover:scale-110 duration-300">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-[#860098] via-[#A020B8] to-[#C13DDA] flex items-center justify-center text-white shadow-lg shadow-[#860098]/20 z-10 transition-transform hover:scale-110 duration-300">
                 {step.icon}
               </div>
-
+ 
               {/* Title Description */}
               <p className="text-gray-700 text-xs font-semibold mt-3 sm:mt-4 max-w-[150px] leading-relaxed">
                 {step.title}
