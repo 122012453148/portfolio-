@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import SectionHeading from '../components/SectionHeading';
 import { PROJECTS } from '../data';
@@ -9,23 +10,86 @@ const Tilt = TiltModule.default || TiltModule;
 
 const PortalDropdown = ({ portals }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [coords, setCoords] = useState({ top: 0, left: 0, width: 0 });
+  const buttonRef = useRef(null);
+  const dropdownRef = useRef(null);
+
+  const updateCoords = () => {
+    if (buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      setCoords({
+        top: rect.bottom + window.scrollY,
+        left: rect.left + window.scrollX,
+        width: rect.width
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      updateCoords();
+      window.addEventListener('resize', updateCoords);
+      window.addEventListener('scroll', updateCoords);
+    }
+    return () => {
+      window.removeEventListener('resize', updateCoords);
+      window.removeEventListener('scroll', updateCoords);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        isOpen && 
+        dropdownRef.current && 
+        !dropdownRef.current.contains(event.target) && 
+        buttonRef.current && 
+        !buttonRef.current.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen]);
+
   return (
     <div className="relative">
       <button 
+        ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)} 
-        onBlur={() => setTimeout(() => setIsOpen(false), 200)}
         className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-[#860098] via-[#A020B8] to-[#C13DDA] text-white font-semibold flex items-center gap-2 hover:shadow-[0_0_20px_rgba(134,0,152,0.3)] transition-all text-sm sm:text-base w-full sm:w-auto justify-center"
       >
         View Portals <ChevronDown size={18} className={`transform transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
       <AnimatePresence>
-        {isOpen && (
+        {isOpen && createPortal(
           <motion.div 
+            ref={dropdownRef}
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 right-0 sm:right-auto mt-3 w-full sm:w-56 bg-white/95 backdrop-blur-xl border border-black/10 rounded-xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.15)] z-50 flex flex-col"
+            style={{ 
+              position: 'absolute',
+              top: `${coords.top + 8}px`,
+              left: `${coords.left}px`,
+              minWidth: `${Math.max(coords.width, 220)}px`,
+              zIndex: 99999
+            }}
+            className="bg-white/90 backdrop-blur-xl border border-[#860098]/30 rounded-xl overflow-hidden shadow-[0_20px_40px_rgba(134,0,152,0.15)] flex flex-col"
           >
             {portals.map((portal, idx) => (
               <a 
@@ -33,13 +97,15 @@ const PortalDropdown = ({ portals }) => {
                 href={portal.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 sm:px-5 py-3 sm:py-3.5 flex items-center gap-3 hover:bg-[#860098]/10 text-gray-600 hover:text-gray-900 transition-colors border-b border-black/5 last:border-0"
+                onClick={() => setIsOpen(false)}
+                className="px-4 sm:px-5 py-3 sm:py-3.5 flex items-center gap-3 hover:bg-[#860098]/10 text-gray-700 hover:text-gray-900 transition-colors border-b border-black/5 last:border-0"
               >
                 <span className="text-lg">{portal.icon}</span>
-                <span className="text-sm font-medium">{portal.name}</span>
+                <span className="text-sm font-semibold">{portal.name}</span>
               </a>
             ))}
-          </motion.div>
+          </motion.div>,
+          document.body
         )}
       </AnimatePresence>
     </div>
@@ -92,19 +158,19 @@ const FeaturedProject = ({ project }) => {
       className="w-full relative group mb-12 sm:mb-24"
     >
       <Tilt tiltMaxAngleX={1} tiltMaxAngleY={1} scale={1.01} transitionSpeed={2000}>
-        <div className="glass-panel p-4 sm:p-6 md:p-10 rounded-2xl sm:rounded-[2.5rem] border border-black/5 hover:border-[#860098]/30 transition-all duration-500 relative overflow-hidden flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12 items-center">
+        <div className="glass-panel p-5 sm:p-8 md:p-12 rounded-[2rem] sm:rounded-[2.5rem] border border-black/5 hover:border-[#860098]/30 transition-all duration-500 relative flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
           
           {/* Background Glows */}
           <div className="absolute -top-32 -left-32 w-64 h-64 bg-[#860098]/10 blur-[100px] rounded-full pointer-events-none group-hover:bg-[#860098]/15 transition-all duration-700"></div>
           <div className="absolute -bottom-32 -right-32 w-64 h-64 bg-[#C13DDA]/5 blur-[100px] rounded-full pointer-events-none group-hover:bg-[#C13DDA]/10 transition-all duration-700"></div>
           
-          {/* Left: Mockup */}
-          <div className="w-full lg:w-[55%] relative z-10">
+          {/* Left: Mockup (55% desktop width with gap accounted for) */}
+          <div className="w-full lg:w-[calc(55%-1.5rem)] flex-shrink-0 relative z-10">
             <BrowserMockup image={project.image} title={project.name} url={project.live} />
           </div>
 
-          {/* Right: Content */}
-          <div className="w-full lg:w-[45%] flex flex-col items-start relative z-10">
+          {/* Right: Content (45% desktop width with gap accounted for) */}
+          <div className="w-full lg:w-[calc(45%-1.5rem)] flex-shrink-0 flex flex-col items-start relative z-10">
             <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
               <div className="inline-flex items-center px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-[#860098]/10 border border-[#860098]/20">
                 <span className="text-[#860098] text-[10px] sm:text-xs font-bold uppercase tracking-wider">⭐ Featured Project</span>
@@ -114,12 +180,12 @@ const FeaturedProject = ({ project }) => {
               </div>
             </div>
             
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-outfit font-extrabold text-gray-900 mb-1 sm:mb-2">{project.name}</h3>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-outfit font-extrabold text-gray-900 mb-2 sm:mb-3 leading-tight">{project.name}</h3>
             <p className="text-[#860098] font-semibold tracking-wide uppercase text-xs sm:text-sm mb-4 sm:mb-6">{project.category}</p>
             
-            <p className="text-gray-500 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-lg">{project.description}</p>
+            <p className="text-gray-500 leading-relaxed mb-8 sm:mb-10 text-sm sm:text-lg">{project.description}</p>
             
-            <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-10">
+            <div className="flex flex-wrap gap-2 sm:gap-3 mb-8 sm:mb-12">
               {project.tech.map((t, idx) => (
                 <div key={idx} className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-50 border border-black/5 rounded-full text-xs sm:text-sm font-medium text-gray-700 hover:bg-[#860098]/5 hover:scale-105 hover:border-[#860098]/20 transition-all cursor-default shadow-sm">
                   <span className="text-base sm:text-lg">{t.icon}</span>
@@ -128,7 +194,7 @@ const FeaturedProject = ({ project }) => {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 mt-auto w-full sm:w-auto">
+            <div className="flex flex-row flex-wrap items-center gap-3 sm:gap-4 mt-auto w-full">
               {project.portals && project.portals.length > 0 ? (
                 <PortalDropdown portals={project.portals} />
               ) : (
