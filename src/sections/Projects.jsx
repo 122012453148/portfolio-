@@ -18,11 +18,18 @@ const PortalDropdown = ({ portals }) => {
     if (buttonRef.current) {
       const rect = buttonRef.current.getBoundingClientRect();
       setCoords({
-        top: rect.bottom + window.scrollY,
-        left: rect.left + window.scrollX,
+        top: rect.bottom,
+        left: rect.left,
         width: rect.width
       });
     }
+  };
+
+  const toggleDropdown = () => {
+    if (!isOpen) {
+      updateCoords();
+    }
+    setIsOpen(!isOpen);
   };
 
   useEffect(() => {
@@ -69,45 +76,47 @@ const PortalDropdown = ({ portals }) => {
     <div className="relative">
       <button 
         ref={buttonRef}
-        onClick={() => setIsOpen(!isOpen)} 
+        onClick={toggleDropdown} 
         className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-gradient-to-r from-[#860098] via-[#A020B8] to-[#C13DDA] text-white font-semibold flex items-center gap-2 hover:shadow-[0_0_20px_rgba(134,0,152,0.3)] transition-all text-sm sm:text-base w-full sm:w-auto justify-center"
       >
         View Portals <ChevronDown size={18} className={`transform transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
-      <AnimatePresence>
-        {isOpen && createPortal(
-          <motion.div 
-            ref={dropdownRef}
-            initial={{ opacity: 0, y: 10, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            style={{ 
-              position: 'absolute',
-              top: `${coords.top + 8}px`,
-              left: `${coords.left}px`,
-              minWidth: `${Math.max(coords.width, 220)}px`,
-              zIndex: 99999
-            }}
-            className="bg-white/90 backdrop-blur-xl border border-[#860098]/30 rounded-xl overflow-hidden shadow-[0_20px_40px_rgba(134,0,152,0.15)] flex flex-col"
-          >
-            {portals.map((portal, idx) => (
-              <a 
-                key={idx}
-                href={portal.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsOpen(false)}
-                className="px-4 sm:px-5 py-3 sm:py-3.5 flex items-center gap-3 hover:bg-[#860098]/10 text-gray-700 hover:text-gray-900 transition-colors border-b border-black/5 last:border-0"
-              >
-                <span className="text-lg">{portal.icon}</span>
-                <span className="text-sm font-semibold">{portal.name}</span>
-              </a>
-            ))}
-          </motion.div>,
-          document.body
-        )}
-      </AnimatePresence>
+      {createPortal(
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div 
+              ref={dropdownRef}
+              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              style={{ 
+                position: 'fixed',
+                top: `${coords.top + 8}px`,
+                left: `${coords.left}px`,
+                minWidth: `${Math.max(coords.width, 220)}px`,
+                zIndex: 99999
+              }}
+              className="bg-white/90 backdrop-blur-xl border border-[#860098]/30 rounded-xl overflow-hidden shadow-[0_20px_40px_rgba(134,0,152,0.15)] flex flex-col"
+            >
+              {portals.map((portal, idx) => (
+                <a 
+                  key={idx}
+                  href={portal.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className="px-4 sm:px-5 py-3 sm:py-3.5 flex items-center gap-3 hover:bg-[#860098]/10 text-gray-700 hover:text-gray-900 transition-colors border-b border-black/5 last:border-0"
+                >
+                  <span className="text-lg">{portal.icon}</span>
+                  <span className="text-sm font-semibold">{portal.name}</span>
+                </a>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </div>
   );
 };
