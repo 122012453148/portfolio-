@@ -22,11 +22,21 @@
   --background-image-gradient-luxury: linear-gradient(135deg, #860098 0%, #A020B8 50%, #C13DDA 100%);
 }
 
+html {
+  overflow-x: hidden;
+  /* Prevent bounce / elastic scroll on iOS */
+  overscroll-behavior: none;
+}
+
 body {
   font-family: var(--font-inter);
   color: var(--color-text-main);
   background-color: var(--color-bg-primary);
   overflow-x: hidden;
+  /* Prevent horizontal scrolling and unwanted touch zoom on Android */
+  overscroll-behavior-x: none;
+  touch-action: pan-y;
+  -webkit-text-size-adjust: 100%;
 }
 
 /* Custom Cursor */

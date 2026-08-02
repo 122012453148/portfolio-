@@ -126,8 +126,8 @@ const Navbar = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.25, ease: 'easeInOut' }}
-              style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 99999 }}
-              className="bg-white/95 backdrop-blur-2xl md:hidden flex flex-col items-center justify-center border-none shadow-none"
+              style={{ position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh', zIndex: 99999, backgroundColor: '#ffffff' }}
+              className="md:hidden flex flex-col items-center justify-center shadow-2xl"
             >
               {/* Close Button / Hamburger in the top right of the overlay */}
               <div className="absolute top-6 right-6">
