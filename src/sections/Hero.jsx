@@ -6,6 +6,8 @@ const Tilt = TiltModule.default || TiltModule;
 import { Mail, Download, ArrowRight } from 'lucide-react';
 import { FaGithub as Github, FaLinkedin as Linkedin } from 'react-icons/fa';
 import { Link } from 'react-scroll';
+import MarqueeModule from 'react-fast-marquee';
+const Marquee = MarqueeModule.default || MarqueeModule;
 
 const Hero = () => {
   return (
@@ -94,13 +96,14 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* RIGHT: Interactive Image */}
+        {/* RIGHT: Profile Image + Tech Stack Marquee */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, type: "spring", bounce: 0.4 }}
-          className="order-1 md:order-2 flex justify-center relative"
+          className="order-1 md:order-2 flex flex-col items-center gap-5"
         >
+          {/* Profile Image with Tilt */}
           <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} scale={1.05} transitionSpeed={2000} className="relative z-10">
             <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-[340px] md:h-[340px] lg:w-[400px] lg:h-[400px] rounded-[2rem] p-1 border-gradient bg-white shadow-[0_0_50px_rgba(134,0,152,0.15)]">
               <div className="w-full h-full rounded-[1.8rem] overflow-hidden bg-white relative">
@@ -108,22 +111,83 @@ const Hero = () => {
                 <img src="/hero-image.jpg" alt="Parthiban.S" className="w-full h-full object-cover grayscale-[20%] contrast-125" />
               </div>
             </div>
-
-            {/* Floating Tech Badges */}
-            <motion.div animate={{ y: [0, -15, 0] }} transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }} className="absolute -top-4 sm:-top-6 -left-2 sm:-left-6 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/95 backdrop-blur rounded-xl flex items-center gap-2 border border-[#860098]/20 hover:border-[#860098]/40 transition-colors z-20 shadow-xl text-xs sm:text-sm">
-              <i className="devicon-react-original text-[#61DAFB] text-xl sm:text-2xl"></i>
-              <span className="font-semibold hidden sm:inline">React</span>
-            </motion.div>
-            
-            <motion.div animate={{ y: [0, 20, 0] }} transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }} className="absolute -bottom-6 sm:-bottom-8 right-4 sm:right-10 px-3 sm:px-4 py-1.5 sm:py-2 bg-white/95 backdrop-blur rounded-xl flex items-center gap-2 border border-[#860098]/20 hover:border-[#860098]/40 transition-colors z-20 shadow-xl text-xs sm:text-sm">
-              <i className="devicon-nodejs-plain text-[#339933] text-xl sm:text-2xl"></i>
-              <span className="font-semibold hidden sm:inline">Node.js</span>
-            </motion.div>
-
-            <motion.div animate={{ x: [0, 15, 0] }} transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 2 }} className="absolute top-1/2 -right-4 sm:-right-8 px-2 sm:px-3 py-2 sm:py-3 bg-white/95 backdrop-blur rounded-xl flex items-center gap-2 border border-[#860098]/20 hover:border-[#860098]/40 transition-colors z-20 shadow-xl">
-              <i className="devicon-mongodb-plain text-[#47A248] text-2xl sm:text-3xl"></i>
-            </motion.div>
           </Tilt>
+
+          {/* Tech Stack Marquee */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="w-56 sm:w-72 md:w-[340px] lg:w-[400px] relative"
+          >
+            {/* Glass container */}
+            <div
+              style={{
+                background: 'rgba(255,255,255,0.75)',
+                backdropFilter: 'blur(18px)',
+                WebkitBackdropFilter: 'blur(18px)',
+                border: '1px solid rgba(134,0,152,0.25)',
+                borderRadius: '20px',
+                boxShadow: '0 15px 40px rgba(134,0,152,0.08)',
+                padding: '12px 0',
+                overflow: 'hidden',
+                /* Edge fade masks */
+                maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%)',
+              }}
+            >
+              <Marquee
+                speed={35}
+                gradient={false}
+                pauseOnHover={true}
+                loop={0}
+                style={{ overflow: 'visible' }}
+              >
+                {[
+                  { name: 'React.js',    icon: 'devicon-react-original',      color: '#61DAFB' },
+                  { name: 'MongoDB',     icon: 'devicon-mongodb-plain',        color: '#47A248' },
+                  { name: 'Node.js',     icon: 'devicon-nodejs-plain',         color: '#339933' },
+                  { name: 'Express.js',  icon: 'devicon-express-original',     color: '#888888' },
+                  { name: 'JavaScript', icon: 'devicon-javascript-plain',     color: '#F7DF1E' },
+                  { name: 'HTML5',       icon: 'devicon-html5-plain',          color: '#E34F26' },
+                  { name: 'CSS3',        icon: 'devicon-css3-plain',           color: '#1572B6' },
+                  { name: 'Git',         icon: 'devicon-git-plain',            color: '#F05032' },
+                  { name: 'GitHub',      icon: 'devicon-github-original',      color: '#181717' },
+                ].map((tech, idx) => (
+                  <div
+                    key={idx}
+                    className="hero-tech-pill"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '7px',
+                      backgroundColor: '#ffffff',
+                      border: '1px solid rgba(134,0,152,0.30)',
+                      borderRadius: '999px',
+                      padding: '7px 14px',
+                      margin: '0 8px',
+                      cursor: 'default',
+                      transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+                      whiteSpace: 'nowrap',
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.transform = 'translateY(-3px) scale(1.04)';
+                      e.currentTarget.style.boxShadow = '0 6px 20px rgba(134,0,152,0.22)';
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                  >
+                    <i className={`${tech.icon} text-[18px]`} style={{ color: tech.color }} />
+                    <span style={{ fontSize: '13px', fontWeight: 600, color: '#374151', letterSpacing: '0.01em' }}>
+                      {tech.name}
+                    </span>
+                  </div>
+                ))}
+              </Marquee>
+            </div>
+          </motion.div>
         </motion.div>
 
       </div>
